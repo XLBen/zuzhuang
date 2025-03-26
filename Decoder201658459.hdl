@@ -91,18 +91,18 @@ CHIP Decoder201658459 {
     Or(a = ab3, b = P5g, out = g);
 
     // --- f 的逻辑 ---
-    Not(in = A, out = NOTAc);
-    Not(in = B, out = NOTBc);
-    Not(in = C, out = NOTFc);
-    Not(in = D, out = NOTDc);
+    Not(in = A, out = NOTAf);
+    Not(in = B, out = NOTBf);
+    Not(in = C, out = NOTFf);
+    Not(in = D, out = NOTDf);
 
-    And(a = NOTBc, b = NOTDc, out = P1f);
+    And(a = NOTBf, b = NOTDf, out = P1f);
     And(a = B, b = C, out = P2f);
-    And(a = A, b = NOTDc, out = P3f);
-    And(a = NOTAc, b = C, out = P4f);
-    And(a = A, b = NOTBc, out = NOTBaf);
-    And(a = NOTBaf, b = NOTFc, out = P5f);
-    And(a = NOTAc, b = B, out = NOTAbf);
+    And(a = A, b = NOTDf, out = P3f);
+    And(a = NOTAf, b = C, out = P4f);
+    And(a = A, b = NOTBf, out = NOTBaf);
+    And(a = NOTBaf, b = NOTFf, out = P5f);
+    And(a = NOTAf, b = B, out = NOTAbf);
     And(a = NOTAbf, b = D, out = P6f);
 
     Or(a = P1f, b = P2f, out = fa1);
