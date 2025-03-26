@@ -39,20 +39,22 @@ CHIP Decoder201658459 {
     And(a=pab, b=pbb, out=pdb);
     And(a=pdb, b=pcb, out=b);
     // --- c 的逻辑 ---
-    Not(in=A, out=NOTAc);
-    Not(in=B, out=NOTBc);
-    Not(in=C, out=NOTCc);
-    Not(in=D, out=NOTDc);
-    And(a=NOTBc, b=C, out=cAndnotbc);
-    And(a=C, b=NOTDc, out=cAndnotdc);
-    And(a=A, b=NOTBc, out=aAndnotbc);
-    And(a=A, b=D, out=aanddc);
-    And(a=NOTCc, b=NOTAc, out=out1c);
-    And(a=B, b=out1c, out=bandoutc);
-    Or(a=cAndnotbc, b=cAndnotdc, out=or1c);
-    Or(a=aAndnotbc, b=aanddc, out=or2c);
-    Or(a=or1c, b=or2c, out=or3c);
-    Or(a=or3c, b=bandoutc, out=c);
+    Not(in = A, out = NOTAc);
+    Not(in = B, out = NOTBc);
+    Not(in = C, out = NOTCc);
+    Not(in = D, out = NOTDc);
+
+    And(a = NOTBc, b = C, out = P1c);
+    And(a = C, b = NOTDc, out = P2c);
+    And(a = A, b = NOTBc, out = P3c);
+    And(a = A, b = D, out = P4c);
+    And(a = NOTCc, b = NOTAc, out = tmpc);
+    And(a = B, b = tmpc, out = P5c);
+
+    Or(a = P1c, b = P2c, out = ca1);
+    Or(a = ca1, b = P3c, out = ca2);
+    Or(a = ca2, b = P4c, out = ca3);
+    Or(a = ca3, b = P5c, out = c);
     // --- d 的逻辑 ---
     Not(in = A, out = NOTAd);
     Not(in = B, out = NOTBd);
