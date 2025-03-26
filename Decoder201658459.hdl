@@ -4,118 +4,111 @@ CHIP Decoder201658459 {
 
     PARTS:
 
-
     // --- a 的逻辑 ---
-    Not(in = A, out = NOTAg);
-    Not(in = B, out = NOTBg);
-    Not(in = C, out = NOTCg);
-    Not(in = D, out = NOTDg);
+    Not(in = A, out = NOTAa);
+    Not(in = B, out = NOTBa);
+    Not(in = C, out = NOTCa);
+    Not(in = D, out = NOTDa);
 
-    And(a = A, b = B, out = ABg);
-    And(a = ABg, b = NOTDg, out = P1g);
-    And(a = NOTBg, b = NOTCg, out = BCg);
-    And(a = BCg, b = NOTDg, out = P2g);
-    And(a = B, b = NOTCg, out = P3ag);
-    And(a = P3ag, b = D, out = P3g);
-    And(a = NOTAg, b = C, out = P4ag);
-    And(a = P4ag, b = NOTDg, out = P4g);
-    And(a = A, b = NOTBg, out = P5ag);
-    And(a = P5ag, b = D, out = P5g);
-    And(a = NOTAg, b = NOTBg, out = ABg2);
-    And(a = ABg2, b = C, out = P6g);
+    And(a = A, b = B, out = ABa);
+    And(a = ABa, b = NOTDa, out = P1a);
+    And(a = NOTBa, b = NOTCa, out = BCa);
+    And(a = BCa, b = NOTDa, out = P2a);
+    And(a = B, b = NOTCa, out = P3aa);
+    And(a = P3aa, b = D, out = P3a);
+    And(a = NOTAa, b = C, out = P4aa);
+    And(a = P4aa, b = NOTDa, out = P4a);
+    And(a = A, b = NOTBa, out = P5aa);
+    And(a = P5aa, b = D, out = P5a);
+    And(a = NOTAa, b = NOTBa, out = ABa2);
+    And(a = ABa2, b = C, out = P6a);
 
-    Or(a = P1g, b = P2g, out = g1);
-    Or(a = g1, b = P3g, out = g2);
-    Or(a = g2, b = P4g, out = g3);
-    Or(a = g3, b = P5g, out = g4);
-    Or(a = g4, b = P6g, out = a);
-
+    Or(a = P1a, b = P2a, out = a1);
+    Or(a = a1, b = P3a, out = a2);
+    Or(a = a2, b = P4a, out = a3);
+    Or(a = a3, b = P5a, out = a4);
+    Or(a = a4, b = P6a, out = a);
     // --- b 的逻辑 ---
-    Not(in=B,out=NotB);
-    Not(in=D,out=NotD);
-    Or(a=C,b=NotD,out=CandNOTD);
-    Or(a=B,b=CandNOTD,out=pa);
-    Or(a=NotB,b=A,out=NotBandA);
-    Or(a=C,b=NotBandA,out=pb);
-    Or(a=NotD,b=A,out=pc);
-    And(a=pa,b=pb,out=pd);
-    And(a=pd,b=pc,out=b);
+    Not(in=B, out=NotBb);
+    Not(in=D, out=NotDb);
+    Or(a=C, b=NotDb, out=CandNOTDb);
+    Or(a=B, b=CandNOTDb, out=pab);
+    Or(a=NotBb, b=A, out=NotBandAb);
+    Or(a=C, b=NotBandAb, out=pbb);
+    Or(a=NotDb, b=A, out=pcb);
+    And(a=pab, b=pbb, out=pdb);
+    And(a=pdb, b=pcb, out=b);
     // --- c 的逻辑 ---
-    Not(in=A, out=NOTA);
-    Not(in=B, out=NOTB);
-    Not(in=C, out=NOTC);
-    Not(in=D, out=NOTD);
-    And(a=NOTB, b=C, out=cAndnotb);
-    And(a=C, b=NOTD, out=cAndnotd);
-    And(a=A, b=NOTB, out=aAndnotb);
-    And(a=A, b=D, out=aandd);
-    And(a=NOTC, b=NOTA, out=out1);
-    And(a=B, b=out1, out=bandout);
-
-    Or(a=cAndnotb, b=cAndnotd, out=or1);
-    Or(a=aAndnotb, b=aandd, out=or2);
-    Or(a=or1, b=or2, out=or3);
-    Or(a=or3, b=bandout, out=c);
+    Not(in=A, out=NOTAc);
+    Not(in=B, out=NOTBc);
+    Not(in=C, out=NOTCc);
+    Not(in=D, out=NOTDc);
+    And(a=NOTBc, b=C, out=cAndnotbc);
+    And(a=C, b=NOTDc, out=cAndnotdc);
+    And(a=A, b=NOTBc, out=aAndnotbc);
+    And(a=A, b=D, out=aanddc);
+    And(a=NOTCc, b=NOTAc, out=out1c);
+    And(a=B, b=out1c, out=bandoutc);
+    Or(a=cAndnotbc, b=cAndnotdc, out=or1c);
+    Or(a=aAndnotbc, b=aanddc, out=or2c);
+    Or(a=or1c, b=or2c, out=or3c);
+    Or(a=or3c, b=bandoutc, out=c);
     // --- d 的逻辑 ---
-    Not(in = A, out = NOTAf);
-    Not(in = B, out = NOTBf);
-    Not(in = C, out = NOTCf);
-    Not(in = D, out = NOTDf);
+    Not(in = A, out = NOTAd);
+    Not(in = B, out = NOTBd);
+    Not(in = C, out = NOTCd);
+    Not(in = D, out = NOTDd);
 
-    And(a = NOTCf, b = NOTDf, out = P1f);
-    And(a = NOTAf, b = B, out = ABf);
-    And(a = ABf, b = NOTCf, out = P2f);
-    And(a = B, b = NOTDf, out = P3f);
-    And(a = A, b = C, out = P4f);
-    And(a = A, b = NOTBf, out = P5f);
+    And(a = NOTCd, b = NOTDd, out = P1d);
+    And(a = NOTAd, b = B, out = ABd);
+    And(a = ABd, b = NOTCd, out = P2d);
+    And(a = B, b = NOTDd, out = P3d);
+    And(a = A, b = C, out = P4d);
+    And(a = A, b = NOTBd, out = P5d);
 
-    Or(a = P1f, b = P2f, out = fa1);
-    Or(a = P3f, b = P4f, out = fa2);
-    Or(a = fa2, b = P5f, out = fa3);
-    Or(a = fa1, b = fa3, out = d);
-    
-
+    Or(a = P1d, b = P2d, out = da1);
+    Or(a = P3d, b = P4d, out = da2);
+    Or(a = da2, b = P5d, out = da3);
+    Or(a = da1, b = da3, out = d);
     // --- g 的逻辑 ---
     Not(in = A, out = NOTAb);
-    Not(in = B, out = NOTBb);
-    Not(in = C, out = NOTCb);
-    Not(in = D, out = NOTDb);
+    Not(in = B, out = NOTGb);
+    Not(in = C, out = NOTGb);
+    Not(in = D, out = NOTGb);
 
-    And(a = NOTBb, b = NOTDb, out = P1b);
-    And(a = NOTBb, b = NOTCb, out = P2b);
-    And(a = NOTAb, b = C, out = NOTAcb);
-    And(a = NOTAcb, b = D, out = P3b);
-    And(a = A, b = NOTCb, out = ANOTCb);
-    And(a = ANOTCb, b = D, out = P4b);
-    And(a = NOTAb, b = NOTCb, out = NOTACb);
-    And(a = NOTACb, b = NOTDb, out = P5b);
+    And(a = NOTGb, b = NOTGb, out = P1g);
+    And(a = NOTGb, b = NOTGb, out = P2g);
+    And(a = NOTAb, b = C, out = NOTAcg);
+    And(a = NOTAcg, b = D, out = P3g);
+    And(a = A, b = NOTGb, out = ANOTCg);
+    And(a = ANOTCg, b = D, out = P4g);
+    And(a = NOTAb, b = NOTGb, out = NOTACg);
+    And(a = NOTACg, b = NOTGb, out = P5g);
 
-    Or(a = P1b, b = P2b, out = ab1);
-    Or(a = ab1, b = P3b, out = ab2);
-    Or(a = ab2, b = P4b, out = ab3);
-    Or(a = ab3, b = P5b, out = g);
+    Or(a = P1g, b = P2g, out = ag1);
+    Or(a = ag1, b = P3g, out = ag2);
+    Or(a = ag2, b = P4g, out = ag3);
+    Or(a = ag3, b = P5g, out = g);
+
     // --- f 的逻辑 ---
     Not(in = A, out = NOTAc);
     Not(in = B, out = NOTBc);
-    Not(in = C, out = NOTCc);
+    Not(in = C, out = NOTFc);
     Not(in = D, out = NOTDc);
 
-    And(a = NOTBc, b = NOTDc, out = P1c);
-    And(a = B, b = C, out = P2c);
-    And(a = A, b = NOTDc, out = P3c);
-    And(a = NOTAc, b = C, out = P4c);
-    And(a = A, b = NOTBc, out = NOTBac);
-    And(a = NOTBac, b = NOTCc, out = P5c);
-    And(a = NOTAc, b = B, out = NOTAbc);
-    And(a = NOTAbc, b = D, out = P6c);
+    And(a = NOTBc, b = NOTDc, out = P1f);
+    And(a = B, b = C, out = P2f);
+    And(a = A, b = NOTDc, out = P3f);
+    And(a = NOTAc, b = C, out = P4f);
+    And(a = A, b = NOTBc, out = NOTBaf);
+    And(a = NOTBaf, b = NOTFc, out = P5f);
+    And(a = NOTAc, b = B, out = NOTAbf);
+    And(a = NOTAbf, b = D, out = P6f);
 
-    Or(a = P1c, b = P2c, out = ca1);
-    Or(a = ca1, b = P3c, out = ca2);
-    Or(a = ca2, b = P4c, out = ca3);
-    Or(a = ca3, b = P5c, out = ca4);
-    Or(a = ca4, b = P6c, out = f);
-
-  
-
+    Or(a = P1f, b = P2f, out = fa1);
+    Or(a = fa1, b = P3f, out = fa2);
+    Or(a = fa2, b = P4f, out = fa3);
+    Or(a = fa3, b = P5f, out = fa4);
+    Or(a = fa4, b = P6f, out = f);
 
 }
