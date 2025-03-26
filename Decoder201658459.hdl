@@ -4,19 +4,15 @@ CHIP Decoder201658459 {
 
     PARTS:
     // --- b 的逻辑 ---
-    Not(in = A, out = NOTAb);
-    Not(in = B, out = NOTBb);
-    Not(in = C, out = NOTCb);
-    Not(in = D, out = NOTDb);
-
-    And(a = NOTBb, b = NOTDb, out = P1b);
-    And(a = C, b = NOTDb, out = P2b);
-    And(a = A, b = B, out = P3b);
-    And(a = A, b = C, out = P4b);
-
-    Or(a = P1b, b = P2b, out = P12b);
-    Or(a = P3b, b = P4b, out = P34b);
-    Or(a = P12b, b = P34b, out = b);
+    Not(in=B,out=NotBb);
+    Not(in=D,out=NotDb);
+    Or(a=C,b=NotDb,out=CandNOTDb);
+    Or(a=B,b=CandNOTDb,out=pab);
+    Or(a=NotBb,b=A,out=NotBandAb);
+    Or(a=C,b=NotBandAb,out=pbb);
+    Or(a=NotDb,b=A,out=pcb);
+    And(a=pab,b=pbb,out=pdb);
+    And(a=pdb,b=pcb,out=b);
 
     // --- g 的逻辑 ---
     Not(in = A, out = NOTAg);
