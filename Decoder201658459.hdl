@@ -71,24 +71,24 @@ CHIP Decoder201658459 {
     Or(a = da2, b = P5d, out = da3);
     Or(a = da1, b = da3, out = d);
     // --- g 的逻辑 ---
-    Not(in = A, out = NOTAb);
-    Not(in = B, out = NOTGb);
-    Not(in = C, out = NOTGb);
-    Not(in = D, out = NOTGb);
+    Not(in = A, out = NOTAg);
+    Not(in = B, out = NOTBg);
+    Not(in = C, out = NOTCg);
+    Not(in = D, out = NOTDg);
 
-    And(a = NOTGb, b = NOTGb, out = P1g);
-    And(a = NOTGb, b = NOTGb, out = P2g);
-    And(a = NOTAb, b = C, out = NOTAcg);
+    And(a = NOTBg, b = NOTDg, out = P1g);
+    And(a = NOTBg, b = NOTCg, out = P2g);
+    And(a = NOTAg, b = C, out = NOTAcg);
     And(a = NOTAcg, b = D, out = P3g);
-    And(a = A, b = NOTGb, out = ANOTCg);
+    And(a = A, b = NOTCg, out = ANOTCg);
     And(a = ANOTCg, b = D, out = P4g);
-    And(a = NOTAb, b = NOTGb, out = NOTACg);
-    And(a = NOTACg, b = NOTGb, out = P5g);
+    And(a = NOTAg, b = NOTCg, out = NOTACg);
+    And(a = NOTACg, b = NOTDg, out = P5g);
 
-    Or(a = P1g, b = P2g, out = ag1);
-    Or(a = ag1, b = P3g, out = ag2);
-    Or(a = ag2, b = P4g, out = ag3);
-    Or(a = ag3, b = P5g, out = g);
+    Or(a = P1g, b = P2g, out = ab1);
+    Or(a = ab1, b = P3g, out = ab2);
+    Or(a = ab2, b = P4g, out = ab3);
+    Or(a = ab3, b = P5g, out = g);
 
     // --- f 的逻辑 ---
     Not(in = A, out = NOTAc);
