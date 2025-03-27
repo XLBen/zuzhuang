@@ -3,7 +3,6 @@ CHIP Counter {
     OUT out[16];
 
     PARTS:
-
     Mux16(a=start, b=false, sel=reset, out=forreg);
     Register(in=forreg, load=true, out=rout);
     And16(a=rout, b=rout, out=out);
